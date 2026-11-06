@@ -1,0 +1,16 @@
+
+# Private credentials
+secrets.h
+.env
+
+# Build files
+build/
+*.o
+*.elf
+*.bin
+
+# Logs
+*.log
+
+# VS Code settings
+.vscode/

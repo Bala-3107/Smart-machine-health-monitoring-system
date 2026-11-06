@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-mini", "id": "bb1", "top": 346.3, "left": 10, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp1", "top": 98.1, "left": 228.44, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 60,
+      "left": 93.4,
+      "attrs": { "temperature": "14.6", "humidity": "0" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 68, "left": 377, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 180.9,
+      "left": 390.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 274.85,
+      "left": 386.8,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 311.7,
+      "left": 388.6,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 257.9,
+      "left": 89.2,
+      "attrs": { "color": "green", "xray": "1" }
+    }
+  ],
+  "connections": [
+    [ "esp1:3V3", "dht1:VCC", "red", [ "h-67.05", "v67.2", "h-57.6" ] ],
+    [
+      "esp1:4",
+      "dht1:SDA",
+      "green",
+      [ "h28.8", "v0", "h0", "v-153.6", "h-201.6", "v96", "h-38.4" ]
+    ],
+    [ "pot1:VCC", "esp1:3V3", "red", [ "v28.8", "h-77.6", "v-38.4" ] ],
+    [ "esp1:GND.3", "pot1:GND", "black", [ "h76.8", "v-19.2" ] ],
+    [ "esp1:34", "pot1:SIG", "green", [ "h182.55", "v-9.6" ] ],
+    [ "esp1:27", "btn1:1.r", "green", [ "h-76.65", "v9.6" ] ],
+    [ "esp1:26", "r1:1", "green", [ "h153.75", "v67.2" ] ],
+    [ "led1:A", "r1:2", "green", [ "v9.6", "h28.8" ] ],
+    [ "esp1:GND.2", "led1:C", "black", [ "v0", "h38.4", "v96", "h9.6" ] ],
+    [ "esp1:25", "bz1:2", "green", [ "v0", "h-19.05", "v211.2", "h211.2", "v-9.6" ] ],
+    [ "btn1:1.l", "bb1:1t.a", "green", [ "h-67.2", "v86.4" ] ],
+    [ "dht1:GND", "bb1:2t.a", "black", [ "v67.2", "h-105.6" ] ],
+    [ "esp1:GND.1", "bb1:3t.a", "black", [ "h-67.05", "v76.8", "h-124.8" ] ],
+    [ "bz1:1", "bb1:4t.a", "green", [ "v-19.2", "h-172.8", "v-38.4", "h-192", "v19.2" ] ]
+  ],
+  "dependencies": {}
+}
